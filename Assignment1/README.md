@@ -37,7 +37,8 @@ Apart from this we also explore image stitching algorithms.
 ## Dependencies
 Ensure you have the following installed:
 ```bash
-pip install opencv-python numpy matplotlib
+conda create --name Assignment1 --file environment.txt
+conda activate Assignment1
 ```
 
 ## Viewing the actual results
