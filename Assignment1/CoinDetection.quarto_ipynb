@@ -1,0 +1,125 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Quarto Basics\"\n",
+        "format:\n",
+        "  html:\n",
+        "    code-fold: true\n",
+        "jupyter: python3\n",
+        "---"
+      ],
+      "id": "9ccc67b2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import cv2\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "id": "adf4126d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "img = cv2.imread(\"Assignment1/CoinImages/AmericanCoins.jpg\")\n",
+        "grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)\n",
+        "blurred = cv2.GaussianBlur(grey, (21, 21), 3)"
+      ],
+      "id": "08b30c89",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(img)\n",
+        "plt.show()"
+      ],
+      "id": "220d6b5d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(grey, cmap=\"grey\")\n",
+        "plt.show()"
+      ],
+      "id": "fb9ae34a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(blurred, cmap='grey')\n",
+        "plt.show()"
+      ],
+      "id": "0a228075",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating the edges using Canny Edge detection\n",
+        "outline = cv2.Canny(blurred, 0, 50)\n",
+        "plt.imshow(outline)\n",
+        "plt.show()"
+      ],
+      "id": "d51a4d3c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "cnts, _ = cv2.findContours(outline,\n",
+        "                           cv2.RETR_EXTERNAL,\n",
+        "                           cv2.CHAIN_APPROX_TC89_L1\n",
+        "                        )\n",
+        "cv2.drawContours(img, cnts, -1, (0, 255, 0), 2)\n",
+        "plt.imshow(img)\n",
+        "plt.show()"
+      ],
+      "id": "c4c0e551",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(f\"Number of coins: {len(cnts)}\")"
+      ],
+      "id": "b3b62c22",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/mandakausthubh/anaconda3/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

@@ -51,3 +51,6 @@ class ResNet(nn.Module):
         f = torch.flatten(f,1)
         # print(f.shape)
         return self.Lin(f)
+
+
+
