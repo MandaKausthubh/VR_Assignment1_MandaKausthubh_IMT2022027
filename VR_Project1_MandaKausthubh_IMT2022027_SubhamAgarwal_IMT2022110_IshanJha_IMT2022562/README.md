@@ -3,23 +3,32 @@
 ## Overview
 This project focuses on various aspects of visual recognition, encompassing multiple tasks as outlined in the provided notebooks. The repository is structured to facilitate clarity and ease of navigation through its distinct components.
 
+The project can be divided into 4 Parts as described in the instructions for the MiniProjects on LMS:
+
+- Task A: Building a Binary Classifier using Hand crafted features
+- Task B: Building a Binary classifier using CNNs
+- Task C: Building an Image Segmentation Program with Hand Crafted feature based traditional methods.
+- Task D: Building a UNet for Image segmentation.
+
+Note that the detailed design of the CNN and implementation of the Unet and the CNN can be found in the ```./Models``` folder of this directory.
+
+## Dataset
+This project uses the dataset provided by the instruction sheet. We couldn't upload the data to github as the files were too large and hence included in the ```.gitignore``` file. The structure of the dataset used in both the tasks is that they are stored in the ```./dataset``` folder and ```./MDFS``` folder. These folders can be found while creating the datasets for the ```Pytorch``` implementation in tasks (b) and (d).
+
+
 ## Repository Structure
 
 The project directory is organized as follows:
 
-- **.ipynb_checkpoints/**: System-generated folder containing checkpoint files for Jupyter notebooks.
-- **.virtual_documents/**: Directory for virtual documents, typically used by certain Jupyter extensions.
 - **models/**: Contains pre-trained or custom-trained models utilized in the project.
 - **pictures/**: Holds images and visual results pertinent to the project's analyses and outputs.
 - **utils/**: Includes utility scripts and helper functions to support various tasks within the project.
-- **.DS_Store**: A system file created by macOS to store custom attributes of a folder.
-- **.gitignore**: Specifies files and directories that should be ignored by Git version control.
 - **part_a.ipynb**: Notebook dedicated to the implementation and analysis of Part A of the project.
 - **part_b.ipynb**: Notebook dedicated to the implementation and analysis of Part B of the project.
 - **part_c.ipynb**: Notebook dedicated to the implementation and analysis of Part C of the project.
 - **part_d.ipynb**: Notebook dedicated to the implementation and analysis of Part D of the project.
 
-## Results for Training CNNs
+## Results and Observations for Training CNNs
 
 ### Result for using AdamW
 ![Results of using AdamW for CNNs](pictures/AdamW_e-2_32.png)
@@ -27,6 +36,9 @@ The project directory is organized as follows:
 ![Results of using SGD for CNNs](./pictures/SGD_e-2_32.png)
 ### Result for using RMSProp
 ![Results of using RMSProp for CNNs](./pictures/RMSProp_e-2_32.png)
+
+Please note that similar tests couldn't be carried out for UNet because of the extensive training time. (5-6 hours on M4 Pro Macbook using MPS).
+
 
 ## How to Use
 
