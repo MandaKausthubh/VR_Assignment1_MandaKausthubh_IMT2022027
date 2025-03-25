@@ -40,6 +40,14 @@ The project directory is organized as follows:
 Please note that similar tests couldn't be carried out for UNet because of the extensive training time. (5-6 hours on M4 Pro Macbook using MPS).
 
 
+## Results of Segmentation:
+
+### Traditional methods for segmentation
+![Traditional Methods](./pictures/output.png)
+
+### Using UNet
+![Unet results](./pictures/UnetResults.png)
+
 ## How to Use
 
 1. **Clone the Repository**:
